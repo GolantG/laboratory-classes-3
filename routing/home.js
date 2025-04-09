@@ -8,6 +8,7 @@ const router = express.Router();
 // Funkcja "response.sendFile" nie jest odpowiednia do zwracania widoków generowanych przez
 // większość silników szablonów. Należy ją zastąpić, inną odpowiednią metodą.
 router.get("/", (_request, response) => {
+  console.log(path.join(__dirname, "../views/index.html"));
   response.sendFile(path.join(__dirname, "../views", "home.html"));
 });
 
