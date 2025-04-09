@@ -1,15 +1,14 @@
 const path = require("path");
-
 const express = require("express");
-
 const router = express.Router();
+const { MENU_LINKS } = require(`../constants/navigation`);
 
-// 🔄 Refactoro the Changer
-// Funkcja "response.sendFile" nie jest odpowiednia do zwracania widoków generowanych przez
-// większość silników szablonów. Należy ją zastąpić, inną odpowiednią metodą.
 router.get("/", (_request, response) => {
-  console.log(path.join(__dirname, "../views/index.html"));
-  response.sendFile(path.join(__dirname, "../views", "home.html"));
+    const menuLinks = MENU_LINKS;
+    const activeLinkPath = `/`;
+    const headTitle = "Shop - Home";
+
+    response.render("home", {headTitle, menuLinks, activeLinkPath});
 });
 
 module.exports = router;

@@ -1,0 +1,19 @@
+<!-- views/partials/navigation.ejs -->
+
+<nav class="navigation">
+    <ul class="navigation__list">
+      <% if (menuLinks.length > 0) { %>
+        <% menuLinks.forEach(link => { %>
+          <li class="navigation__list-item">
+            <a 
+              href="<%= link.path %>" 
+              class="navigation__link <%= link.path === activeLinkPath ? 'navigation__link--active' : '' %>"
+            >
+              <%= link.label %>
+            </a>
+          </li>
+        <% }) %>
+      <% } %>
+    </ul>
+  </nav>
+  
